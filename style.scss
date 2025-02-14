@@ -1,0 +1,146 @@
+/* ==================== */
+/* VARIABLES */
+/* ==================== */
+@use 'variables';
+
+/* ==================== */
+/* ESTILOS GENERALES */
+/* ==================== */
+@use 'global';
+
+/* ==================== */
+/* HEADER Y NAV */
+/* ==================== */
+@use 'header';
+
+/* ==================== */
+/* HERO SECTION */
+/* ==================== */
+@use 'hero';
+
+/* ==================== */
+/* GALERÍA */
+/* ==================== */
+@use 'gallery';
+
+/* ==================== */
+/* FORMULARIOS */
+/* ==================== */
+@use 'form';
+
+/* ==================== */
+/* FOOTER */
+/* ==================== */
+@use 'footer';
+
+/* ==================== */
+/* MEDIA QUERIES */
+/* ==================== */
+@use 'mediaqueries';
+
+/* ==================== */
+/* VARIABLES */
+/* ==================== */
+$primary-color: #270a6c;
+$secondary-color: #8c1372;
+$text-light: #ddd;
+$font-stack: Arial, sans-serif;
+
+/* ==================== */
+/* MIXINS */
+/* ==================== */
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin transition($property: all, $duration: 0.3s, $ease: ease) {
+    transition: $property $duration $ease;
+}
+
+/* ==================== */
+/* ESTILOS GENERALES */
+/* ==================== */
+body {
+    font-family: $font-stack;
+    min-height: 100vh;
+    @include flex-center;
+    flex-direction: column;
+    background-image: url(https://images.pexels.com/photos/1142950/pexels-photo-1142950.jpeg);
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ==================== */
+/* HEADER Y NAV */
+/* ==================== */
+header {
+    background-color: $primary-color;
+    width: 100%;
+}
+
+nav {
+    @include flex-center;
+    padding: 1rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    @include transition(color);
+}
+
+nav ul li a:hover {
+    color: $secondary-color;
+}
+
+/* ==================== */
+/* HERO SECTION */
+/* ==================== */
+#hero {
+    min-height: 400px;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/fondo.jpg');
+    background-size: cover;
+    background-position: center;
+    @include flex-center;
+}
+
+#hero h1 {
+    color: white;
+    font-size: 3rem;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    @include transition(transform);
+}
+
+#hero h1:hover {
+    transform: scale(1.05);
+}
+
+/* ==================== */
+/* FOOTER */
+/* ==================== */
+footer {
+    width: 100%;
+    background-color: $primary-color;
+    color: $text-light;
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+.footer-content p:hover {
+    transform: scale(1.02);
+    color: $secondary-color;
+}
